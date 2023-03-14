@@ -9,12 +9,10 @@ from .models import PV_Room, PV_Message,Slug,PV_Member
 @login_required
 def pv_rooms(request):
     all = PV_Member.objects.all()
-    print(all, "\n\n\n\n")
     us = User.objects.get(username=request.user)
-    print(us)
     try:
         privates = PV_Member.objects.get(user=us).others.all()
-        print(privates)
+
         links=PV_Member.objects.get(user=us).others_rooms.all()
         list_link=[int(i.slug) for i in links]
     except:
@@ -23,33 +21,41 @@ def pv_rooms(request):
 
     if request.method == 'POST':
         username = request.POST['username']
-        us = User.objects.get(username=request.user)
         slug = Slug.objects.get(id=1)
-        al=PV_Member.objects.all()
-
         use = get_object_or_404(User, username=username)
         use1 = User.objects.get( username=username)
-        print(use1, "\n\n\n\n")
+
         slug.data+=1
         slug.save()
-
         us = User.objects.get(username=request.user)
-        print(us)
         try:
             deu = PV_Member.objects.get(user=us)
+            deu.others.add(use1)
+            deu.save()
         except:
             deu = PV_Member(user=us)
             deu.save()
-        deu.others.add(use1)
-        deu.save()
+            deu.others.add(use1)
+            deu.save()
+        try:
+            man = PV_Member.objects.get(user=use1)
+            man.others.add(us)
+            man.save()
+        except:
+            man = PV_Member(user=use1)
+            man.save()
+            man = PV_Member.objects.get(user=use1)
+            man.others.add(us)
+            man.save()
+
         New = PV_Room(user1=us, user2=use, slug=slug.data)
         New.save()
         deu.others_rooms.add(New)
+        man.others_rooms.add(New)
         return redirect(f"/pv/{slug.data}/")
     else:
         form = Pv()
-
-        return render(request, 'pv_room/pvrooms.html', {'rooms': privates, 'form':form, 'links': list_link, 'range':range(len(list_link)) })
+        return render(request, 'pv_room/pvrooms.html', {'rooms': privates, 'form':form, 'links': list_link, 'len':len(list_link) })
 
 
 @login_required

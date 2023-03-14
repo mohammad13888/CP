@@ -26,7 +26,7 @@ class PV_ChatConsumer(AsyncWebsocketConsumer):
     # Receive message from Socket
     async def receive(self, text_data):
         data = json.loads(text_data)
-        print(data)
+
         message = data['message']
         username = data['username']
         room = data['room']
@@ -35,7 +35,6 @@ class PV_ChatConsumer(AsyncWebsocketConsumer):
             idd=await self.delete_message(username,room, message)
         else:
             iddd=await self.save_message(username, room, message)
-        print("\n a request sent!!!")
         # Send message to room group
         if delete==0:
 
@@ -98,7 +97,6 @@ class PV_ChatConsumer(AsyncWebsocketConsumer):
         room = PV_Room.objects.get(slug=room)
         m=PV_Message.objects.get(id=message, user=user, room=room)
         i=m.id
-        print(m)
         m.delete()
         return i
 
@@ -131,7 +129,6 @@ class ChatConsumer(AsyncWebsocketConsumer):
     # Receive message from Socket
     async def receive(self, text_data):
         data = json.loads(text_data)
-        print(data)
         message = data['message']
         username = data['username']
         room = data['room']
@@ -140,7 +137,6 @@ class ChatConsumer(AsyncWebsocketConsumer):
             idd = await self.delete_message(username, room, message)
         else:
             iddd1 = await self.save_message(username, room, message)
-        print("\n a request sent!!!")
         # Send message to room group
         if delete == 0:
 
@@ -204,6 +200,5 @@ class ChatConsumer(AsyncWebsocketConsumer):
         room = Room.objects.get(slug=room)
         m = Message.objects.get(id=message, user=user, room=room)
         i = m.id
-        print(m)
         m.delete()
         return i

@@ -86,12 +86,14 @@
 </form>
 </div>
 <div class="w-full flex flex-wrap items-center">
-    {% for room in rooms %}
+  {% load custom_tags %}
+
+{% for i in len|get_range %}
         <div class="w-full lg:w-1/4 px-3 py-3">
             <div class="p-4 bg-white shadow rounded-xl text-center">
-                <h2 class="mb-5 text-2xl font-semibold"  style="font-family:B Nazanin">{{ room }}</h2>
+                <h2 class="mb-5 text-2xl font-semibold"  style="font-family:B Nazanin">{{ rooms|get_from_dict:i }}</h2>
 
-                <a href="#" class="px-5 py-3 block rounded-xl text-white bg-teal-600 hover:bg-teal-700"  style="font-family:B Nazanin">عضویت</a>
+                <a href="{{ links|get_from_dict:i }}" class="px-5 py-3 block rounded-xl text-white bg-teal-600 hover:bg-teal-700"  style="font-family:B Nazanin">عضویت</a>
             </div>
         </div>
     {% endfor %}

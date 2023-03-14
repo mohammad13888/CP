@@ -60,9 +60,6 @@
         const data = JSON.parse(e.data);
         let stringWithoutSpaces = data.username.replace(/ /g, "");
         if (data.command == "del") {
-            console.log({
-                'salam':data.message__id
-            })
             document.getElementById(data.message__id).remove();
 
         }
@@ -96,12 +93,6 @@
         }
     };
     function del(message) {
-        console.log({
-            'message': message,
-            'username': userName,
-            'room': roomName,
-            'delete':1
-        })
 
         chatSocket.send(JSON.stringify({
             'message': message,
@@ -118,12 +109,7 @@
         const messageInputDom = document.querySelector('#chat-message-input');
         const message = messageInputDom.value;
 
-        console.log({
-            'message': message,
-            'username': userName,
-            'room': roomName,
-            'delete':0
-        })
+
         if (message) {
 
         chatSocket.send(JSON.stringify({
