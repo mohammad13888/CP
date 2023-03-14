@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <link rel="icon" href="https://bayanbox.ir/view/9003252287432917985/UTA-i.png">
+      <title>FeedBack</title>
+      {% include "base.html" %}
+
+        {% load static %}
+          <!--<link href="{% static 'fonts/Ubuntu-Regular.ttf' %}" rel="stylesheet" media="screen">-->
+        <style>
+/*@font-face {
+  font-family: "Ubuntu";
+  src: url("fonts/Ubuntu-Regular.ttf") format("truetype");
+}*/
+.container {
+  font-family: Arial;
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  margin-top: 1%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.darker {
+  border-color: #ccc;
+  background-color: #ddd;
+}
+
+.container::after {
+  content: "";
+  clear: both;
+}
+
+.container img {
+  max-width: 60px;
+  width: 100%;
+  border-radius: 50%;
+  float: left;
+}
+
+.container img.right {
+  float: right;
+}
+
+.g-recaptcha{
+  position:relative;
+  left: 29%;
+  top: -1px;
+  height: 0%;
+  width: 60%;
+}
+* {box-sizing: border-box;}
+
+body { 
+  margin: 0 auto;
+  font-family: Arial, Helvetica, sans-serif , Ubuntu;
+  background-color: #ffffff;
+}
+
+
+        </style>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        </head>
+        <body>
+
+          
+            </div>
+          </div>
+          
+        <header>
+          <h2 style="font-family: Fredoka One; font-size: 800%; color: #4658bd; text-align: center; margin-top: 0%;">FeedBack</h2>
+        </header>
+        <style>
+            input[type=text], select {
+            width: 100%;
+            padding: 2% 20px;
+            margin: 10px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: Ubuntu;
+            font-size: medium;
+
+          }
+          input[type=email], select {
+            width: 100%;
+            padding: 2% 20px;
+            margin: 10px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: Ubuntu;
+            font-size: medium;
+
+          }
+          input[name=text], select {
+            width: 100%;
+            padding: 2% 20px;
+            margin: 10px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: Ubuntu;
+            font-size: medium;
+
+          }
+          textarea {
+            width: 100%;
+            padding: 2% 20px;
+            margin: 10px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: Ubuntu;
+            font-size: medium;
+
+          }
+          input[type=password], select {
+            width: 100%;
+            padding: 2% 20px;
+            margin: 10px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: Ubuntu;
+            font-size: medium;
+
+          }
+            input[type=submit] {
+            width: 100%;
+            background-color: #4658bd;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            }
+        
+            input[type=submit]:hover {
+            background-color: #334191;  
+            align-self: center;
+          }
+        
+            div[id='13'] {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+            
+            }
+           
+            </style>
+        
+        <div id="13" class="container">
+          {% include 'messages.html' %}
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            
+            <input type="submit" value="Submit">
+        </form>
+        </div>
+    </body>
+</html>
