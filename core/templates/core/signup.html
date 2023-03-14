@@ -3,41 +3,122 @@
 {% block title %}Sign up | {% endblock %}
 
 {% block content %}
+<link rel="icon" href="https://bayanbox.ir/view/9003252287432917985/UTA-i.png">
+
 <div class="p-10 lg:p-20 text-center">
     <h1 class="text-3xl lg:text-6xl text-white" style="font-family:B Nazanin">عضویت در پیام رسان دانشگاه شهید رجایی</h1>
 </div>
 
-<form method="post" action="." class="lg:w-1/4 px-4 mx-auto">
-    {% csrf_token %}
+<header>
+    <h2 style="font-family: Fredoka One; font-size: 800%; color: #4658bd; text-align: center; margin-top: 0%;">Sign up</h2>
+  </header>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <style>
+    .container {
+    font-family: Arial;
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    margin-top: 1%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    }
 
-    <div class="mb-5">
-        <label class="text-white" style="font-family:B Nazanin">نام کاربری</label>
+    .darker {
+    border-color: #ccc;
+    background-color: #ddd;
+    }
 
-        <input type="text" name="username" class="w-full mt-2 px-4 py-2 rounded-xl">
-    </div>
+    .container::after {
+    content: "";
+    clear: both;
+    }
 
-    <div class="mb-5">
-        <label class="text-white" style="font-family:B Nazanin">گذرواژه</label>
+    .container img {
+    max-width: 60px;
+    width: 100%;
+    border-radius: 50%;
+    float: left;
+    }
 
-        <input type="password" name="password1" class="w-full mt-2 px-4 py-2 rounded-xl">
-    </div>
+    .container img.right {
+    float: right;
+    }
 
-    <div class="mb-5">
-        <label class="text-white" style="font-family:B Nazanin">تکرار گذرواژه</label>
+    .g-recaptcha{
+    position:relative;
+    left: 29%;
+    top: -1px;
+    height: 0%;
+    width: 60%;
+    }
+    * {box-sizing: border-box;}
 
-        <input type="password" name="password2" class="w-full mt-2 px-4 py-2 rounded-xl">
-    </div>
+    body { 
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif , Ubuntu;
+    background-color: #ffffff;
+    }
+      input[type=text], select {
+      width: 100%;
+      padding: 2% 20px;
+      margin: 10px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-family: Ubuntu;
+      font-size: medium;
 
-    {% if form.errors %}
-        {% for field in form %}
-            {% for error in field.errors %} 
-                <div class="mb-5 p-4 rounded-xl bg-red-300 text-white">
-                    <p>{{ error|escape }}</p>
-                </div>
-            {% endfor %}
-        {% endfor %}
-    {% endif %}
+    }
 
-    <button class="px-5 py-3 rounded-xl text-white bg-teal-800 hover:bg-teal-700" style="font-family:B Nazanin">ثبت</button>
-</form>
+    input[type=password], select {
+      width: 100%;
+      padding: 2% 20px;
+      margin: 10px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-family: Ubuntu;
+      font-size: medium;
+
+    }
+      input[type=submit] {
+      width: 100%;
+      background-color: #4658bd;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      }
+  
+      input[type=submit]:hover {
+      background-color: #334191;  
+      align-self: center;
+    }
+  
+      div[id='13'] {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 20px;
+      
+      }
+     
+      </style>
+  
+  <div id="13" class="container">
+    {% include 'messages.html' %}
+
+  <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Submit">
+  </form>
+</div>
 {% endblock %}

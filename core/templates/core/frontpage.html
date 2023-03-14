@@ -3,168 +3,668 @@
 {% block title %}Welcome | {% endblock %}
 
 {% block content %}
-<div class="p-10 lg:p-20 text-center">
-    <h1 class="text-3xl lg:text-6xl text-white"  style="font-family:B Nazanin">Uta</h1>
-</div>
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="icon" href="https://bayanbox.ir/view/9003252287432917985/UTA-i.png">
+      {% include "base.html" %}
+      {% load static %}
+      <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    </head>
+    <body>
+      {% load static %}
+        <link href="{% static 'fonts/dtl-prokyon-st.ttf' %}" rel="stylesheet" media="screen">
+      <style>
+        @font-face {
+          font-family: "DTLProkyonST";
+          src: url("fonts/dtl-prokyon-st.ttf") format("truetype");
+        }
+
+        #dv
+        {
+          text-align: center;
+          color: #4658bd;
+          font-family: Ubuntu;
+          font-weight: bold;
+        }
+
+        #dv::selection
+        {
+          color: white;
+          background-color: #4658bd;
+        }
+
+        /*.hr-lines
+        {
+          position: relative;
+          max-width: 500px;
+          text-align: center;
+          margin: auto;
+        }
+
+        .hr-lines:before
+        {
+          content:" ";
+          height: 2px;
+          width: 150px;
+          background: #4658bd;
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 0;
+          margin: auto;
+        }
+
+        .hr-lines:after
+        {
+          content:" ";
+          height: 2px;
+          width: 150px;
+          background: #4658bd;
+          display: block;
+          position: absolute;
+          top: 50%;
+          right: 0;
+          margin: auto;
+        }*/
+
+        .h2
+        {
+          display: flex;
+          flex-direction: row;
+        }
+
+        .h2:before, .h2:after
+        {
+          content: "";
+          flex: 1 1;
+          border-bottom: 2px solid;
+          margin: auto;
+        }
+
+        .h2:before
+        {
+          margin-right: 10px
+        }
+
+        .h2:after
+        {
+          margin-left: 10px
+        }
+
+        #dve
+        {
+          border-top: 2px solid #4658bd;
+        }
+
+        .pcard
+        {
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          width: 190px;
+          text-align: center;
+          font-family: arial;
+          display: inline-block;
+        }
+
+        .ntitle2
+        {
+          color: grey;
+          font-size: 14px;
+        }
+
+        .ntitle
+        {
+          color: grey;
+          font-size: 18px;
+        }
+
+        #contbtn
+        {
+          border: none;
+          outline: 0;
+          display: inline-block;
+          padding: 8px;
+          color: white;
+          background-color: #4658bd;
+          text-align: center;
+          cursor: pointer;
+          width: 100%;
+          font-size: 18px;
+          transition-duration: 0.2s;
+        }
+
+        #contbtn:hover
+        {
+          background-color: #334191;
+          transition-duration: 0.2s;
+        }
+
+        #devc
+        {
+          display: flex;
+          justify-content: space-around;
+        }
+
+        .icoend
+        {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          transition-duration: 0.4s;
+          width: 137px;
+        }
+
+        .icoend:hover
+        {
+          transform:rotate(360deg) scale(1.25);
+          transition-duration: 0.4s;
+        }
+
+        .carousel
+        {
+          margin-bottom: 4rem;
+        }
+        /* Since positioning the image, we need to help out the caption */
+        .carousel-caption
+        {
+          bottom: 3rem;
+          z-index: 10;
+        }
+
+        /* Declare heights because of positioning of img element */
+        .carousel-item
+        {
+          height: 32rem;
+          background-color: #777;
+        }
+        .carousel-item > img
+        {
+          position: absolute;
+          top: 0;
+          left: 0;
+          min-width: 100%;
+          height: 32rem;
+        }
 
 
-<!-- Slideshow container -->
-<style>
+        /* MARKETING CONTENT
+        -------------------------------------------------- */
 
-* {box-sizing:border-box}
+        /* Center align the text within the three columns below the carousel */
+        .marketing .col-lg-4
+        {
+          margin-bottom: 1.5rem;
+          text-align: center;
+        }
+        .marketing h2
+        {
+          font-weight: 400;
+        }
+        .marketing .col-lg-4 p
+        {
+          margin-right: .75rem;
+          margin-left: .75rem;
+        }
 
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-}
 
-/* Hide the images by default */
-.mySlides {
-  display: none;
-}
+        /* Featurettes
+        ------------------------- */
 
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
+        .featurette-divider
+        {
+          margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+        }
 
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
+        /* Thin out the marketing headings */
+        .featurette-heading
+        {
+          font-weight: 300;
+          line-height: 1;
+          letter-spacing: -.05rem;
+        }
 
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
 
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
+        /* RESPONSIVE CSS
+        -------------------------------------------------- */
 
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
+        @media (min-width: 40em)
+        {
+          /* Bump up size of carousel content */
+          .carousel-caption p {
+            margin-bottom: 1.25rem;
+            font-size: 1.25rem;
+            line-height: 1.4;
+          }
 
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
+          .featurette-heading {
+            font-size: 50px;
+          }
+        }
 
-.active, .dot:hover {
-  background-color: #717171;
-}
+        @media (min-width: 62em)
+        {
+          .featurette-heading {
+            margin-top: 7rem;
+          }
+        }
 
-/* Fading animation */
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
+        .dj
+        {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 100px;
+          transition-duration: 0.3s;
+        }
 
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-}
+        .dj:hover
+        {
+          transform: scale(1.25);
+          transition-duration: 0.3s;
+        }
 
-</style>
-<div class="slideshow-container">
+        #slideu
+        {
+          background-color: #4658bd;
+          border-color: #4658bd;
+        }
 
-    <!-- Full-width images with number and caption text -->
-    <div class="mySlides fade">
-      <div class="numbertext">1 / 3</div>
+        #slidet
+        {
+          background-color: #1DA1F2;
+          border-color: #1DA1F2;
+        }
 
-    </div>
-  
-    <div class="mySlides fade">
-      <div class="numbertext">2 / 3</div>
-      <img src="img2.jpg" style="width:100%">
-      <div class="text">Caption Two</div>
-    </div>
-  
-    <div class="mySlides fade">
-      <div class="numbertext">3 / 3</div>
-      <img src="img3.jpg" style="width:100%">
-      <div class="text">Caption Three</div>
-    </div>
-  
-    <!-- Next and previous buttons -->
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-  </div>
-  <br>
-  
-  <!-- The dots/circles -->
-  <div style="text-align:center">
-    <span class="dot" onclick="currentSlide(1)"></span>
-    <span class="dot" onclick="currentSlide(2)"></span>
-    <span class="dot" onclick="currentSlide(3)"></span>
-  </div>
+        #slidec
+        {
+          background-color: #25D366;
+          border-color: #25D366;
+        }
 
-  <script>let slideIndex = 1;
-    showSlides(slideIndex);
-    
-    // Next/previous controls
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
-    
-    // Thumbnail image controls
-    function currentSlide(n) {
-      showSlides(slideIndex = n);
-    }
-    
-    function showSlides(n) {
-      let i;
-      let slides = document.getElementsByClassName("mySlides");
-      let dots = document.getElementsByClassName("dot");
-      if (n > slides.length) {slideIndex = 1}
-      if (n < 1) {slideIndex = slides.length}
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex-1].style.display = "block";
-      dots[slideIndex-1].className += " active";
-    }</script>
+        #newsUTA::selection
+        {
+          background-color: #4658bd;
+          color: white;
+        }
+
+        *,
+        *::after,
+        *::before {
+          box-sizing: inherit;
+        }
+
+        .like-button {
+          margin: 0 auto;
+          --color: #f6f8ff;
+          --color-hover: #f6f8ff;
+          --color-active: #fff;
+          --icon: #e1e6f9;
+          --icon-hover: #eceffc;
+          --icon-active: #fff;
+          --background: #404660;
+          --background-hover: #393e57;
+          --background-active: #4658bd;
+          --shadow: rgba(0, 17, 119, 0.1);
+          display: block;
+          outline: none;
+          cursor: pointer;
+          position: relative;
+          border: none;
+          background: none;
+          padding: 8px 20px 8px 24px;
+          border-radius: 9px;
+          line-height: 27px;
+          font-family: inherit;
+          font-weight: 600;
+          font-size: 14px;
+          color: var(--color);
+          transition: color 0.2 linear;
+        }
+
+        .like-button:hover {
+          --icon: var(--icon-hover);
+          --color: var(--color-hover);
+          --background: var(--background-hover);
+        }
+
+        .like-button:active {
+          --scale: 0.95;
+        }
+
+        .like-button:not(.liked):hover {
+          --hand-rotate: 8deg;
+          --hand-thumb-1: -12deg;
+          --hand-thumb-2: 36deg;
+        }
+
+        .like-button.liked {
+          --span-x: 2px;
+          --span-d-o: 1;
+          --span-d-x: 0;
+          --icon: var(--icon-active);
+          --color: var(--color-active);
+          --background: var(--background-active);
+          --hand-name: hand;
+        }
+
+        .like-button .hand,
+        .like-button .liket {
+          z-index: 1;
+          position: relative;
+          display: inline-block;
+          vertical-align: top;
+        }
+
+        .like-button::after {
+          content: "";
+          min-width: 103px;
+          position: absolute;
+          left: 0;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          border-radius: inherit;
+          transition: background 0.2s linear, transform 0.2s, box-shadow 0.2s linear;
+          transform: scale(var(--scale, 1)) translateZ(0);
+          background: var(--background);
+          box-shadow: 0 4px 8px var(--shadow), 0 8px 20px var(--shadow);
+        }
+
+        .like-button .emitter {
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translateZ(-4px);
+        }
+
+        .like-button .emitter .div1 {
+          width: 6px;
+          height: 6px;
+          margin: -3px 0 0 -3px;
+          border-radius: 2px;
+          position: absolute;
+          left: 0;
+          top: 0;
+          transform-style: preserve-3d;
+          background: var(--b, none);
+        }
+
+        .like-button .hand {
+          width: 11px;
+          height: 11px;
+          border-radius: 2px 0 0 0;
+          background: var(--icon);
+          margin: 10px 8px 0 0;
+          transform-origin: -5px -1px;
+          transition: transform 0.25s, background 0.2s linear;
+          transform: rotate(var(--hand-rotate, 0deg)) translateZ(0);
+          animation: var(--hand-name, none) 0.5s linear;
+        }
+
+        .like-button .hand::before,
+        .like-button .hand::after {
+          content: "";
+          background: var(--icon);
+          position: absolute;
+          transition: background 0.2s linear, box-shadow 0.2s linear;
+        }
+
+        .like-button .hand::before {
+          left: -5px;
+          bottom: 0;
+          height: 12px;
+          width: 4px;
+          border-radius: 1px 1px 0 1px;
+        }
+
+        .like-button .hand::after {
+          right: -3px;
+          top: 0;
+          width: 4px;
+          height: 4px;
+          border-radius: 0 2px 2px 0;
+          background: var(--icon);
+          box-shadow: -0.5px 4px 0 var(--icon), -1px 8px 0 var(--icon), -1.5px 12px 0 var(--icon);
+          transform: scaleY(0.6825);
+          transform-origin: 0 0;
+        }
+
+        .like-button .hand .thumb {
+          background: var(--icon);
+          width: 10px;
+          height: 4px;
+          border-radius: 2px;
+          transform-origin: 2px 2px;
+          position: absolute;
+          left: 0;
+          top: 0;
+          transition: transform 0.25s, background 0.2s linear;
+          transform: scale(0.85) translateY(-0.5px) rotate(var(--hand-thumb-1, -45deg)) translateZ(0);
+        }
+
+        .like-button .hand .thumb::before {
+          content: "";
+          height: 4px;
+          width: 7px;
+          border-radius: 2px;
+          transform-origin: 2px 2px;
+          background: var(--icon);
+          position: absolute;
+          left: 7px;
+          top: 0;
+          transition: transform 0.25s, background 0.2s linear;
+          transform: rotate(var(--hand-thumb-2, -45deg)) translateZ(0);
+        }
+
+        .like-button .hand .liket,
+        .like-button .liket .liket {
+          opacity: var(--span-d-o, 0);
+          transition: transform 0.25s, opacity 0.2s linear;
+          transform: translateX(var(--span-d-x, 2px)) translateZ(0);
+        }
+
+        .like-button .liket {
+          transition: transform 0.25s;
+          transform: translateX(var(--span-x, 4px)) translateZ(0);
+        }
+
+        /* Animation */
+        @keyframes hand {
+          30% {
+            transform: rotate(-14deg) translateZ(0);
+          }
+
+          65% {
+            transform: rotate(7deg) translateZ(0);
+          }
+
+          100% {
+            transform: rotate(0deg) translateZ(0);
+          }
+        }
+      </style>
+        {% include 'messages.html' %}<!---->
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="first-slide" src="https://educationinprogress.eu/images/social_media.png" alt="First slide">
+              <div class="container">
+                <div class="carousel-caption text-left">
+                  <h1>UTA Social Media</h1>
+                  <p></p>
+                  {% if user.is_authenticated %}
+                  <p><a id="slideu" class="btn btn-lg btn-primary" href="/" role="button">Login now!</a></p>
+                  {% endif %}
+                  {% if not user.is_authenticated %}
+                  <p><a id="slideu" class="btn btn-lg btn-primary" href="/login/" role="button">Login now!</a></p>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img class="second-slide" src="https://blog.fanpagekarma.com/wp-content/uploads/2020/11/Top-11-Tips-Twitter-Marketing-1024x533.png" alt="Second slide">
+              <div class="container">
+                <div class="carousel-caption">
+                  <h1>UTA - Twitter</h1>
+                  <p><a id="slidet" class="btn btn-lg btn-primary" href="#" role="button">Open UTA Twitter</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img class="third-slide" src="https://assets.website-files.com/5d9bdb47e33988bf5815bfed/6318e8850fc4751484362c0b_Live-chat-etiquette.png" alt="Third slide">
+              <div class="container">
+                <div class="carousel-caption text-right">
+                  <h1>UTA - Chat</h1>
+                  <p><a id="slidec" class="btn btn-lg btn-primary" href="/chat/" role="button">Open UTA Chat</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div><!---->
+        <br><br>
+        <div>
+          <h2 class="h2" id="dv">News</h2><br>
+          <div id="devc">
+            <div class="pcard">
+              <h1 style="font-family: Ubuntu; font-size: 30px"><span id="newsUTA" style="color: #4658bd;">UTA</span><br>Social Media</h1>
+              <p class="ntitle2">A messenger with high security ready for your use</p>
+              <!-- Like Button HERE -->
+              {% if loked  == 0 %}
+              <button onclick="lok()" type="button" class="like-button" id="lok">
+              <div class="emitter div1"></div>
+              <div class="hand div1">
+                <div class="thumb div1"></div>
+              </div>
+              <span class="liket">Like<span class="liket">d</span></span>
+              </button>
+              <script>
+                document.querySelectorAll(".like-button").forEach((button) => {
+                  button.addEventListener("click", () => {
+                    button.classList.toggle("liked");
+                  });
+                });
+              </script>
+              {% endif %}
+              {% if loked == 1 %}
+              <button onclick="lok()" type="button" class="like-button liked" id="lok">
+                <div class="emitter div1"></div>
+                <div class="hand div1">
+                  <div class="thumb div1"></div>
+                </div>
+                <span class="liket">Like<span class="liket">d</span></span>
+              </button>
+              <script>
+                document.querySelectorAll(".like-button").forEach((button) => {
+                  button.addEventListener("load", () => {
+                    button.classList.toggle("liked");
+                  });
+                  button.addEventListener("click", () => {
+                  button.classList.toggle("liked");
+                });                  });
+              </script>
+              {% endif %}
+              <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+              <script type="text/javascript">
+                function lok() {
+                  $.ajax({
+                    type:'GET',
+                    url:'/chat/uta/like/',
+                  });
+                }
+              </script>
+              <br>
+            </div>
+          </div>
+          <hr id="dve">
+        </div><br><br><br><br><br><br><br><br><br><br><br><br>
+        <div>
+          <h2 class="h2" id="dv">Developers</h2>
+          <br>
+          <div id="devc">
+            <div class="pcard">
+              <h1 style="font-family: Ubuntu; font-size: 30px">M. Hossein<br>Neek Amal</h1>
+              <p class="ntitle">Django support</p>
+              <div style="margin: 24px 0;"><!--
+                <a href="#"><i class="fa fa-dribbble"></i></a> 
+                <a href="#"><i class="fa fa-twitter"></i></a>  
+                <a href="#"><i class="fa fa-linkedin"></i></a>  
+                <a href="#"><i class="fa fa-facebook"></i></a>--> 
+              </div>
+              <p><button id="contbtn" onclick="alert('Email: uta.socialhub@gmail.com')">Contact <iconify-icon icon="logos:google-gmail" width="17"></iconify-icon></button></p>
+              <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+            </div>
+            <div class="pcard">
+              <h1 style="font-family: Ubuntu; font-size: 30px">Pasha<br>Miezaee</h1>
+              <p class="ntitle">Django support</p>
+              <div style="margin: 24px 0;"><!--
+                <a href="#"><i class="fa fa-dribbble"></i></a> 
+                <a href="#"><i class="fa fa-twitter"></i></a>  
+                <a href="#"><i class="fa fa-linkedin"></i></a>  
+                <a href="#"><i class="fa fa-facebook"></i></a>--> 
+              </div>
+              <p><button id="contbtn" onclick="alert('Email: uta.socialhub@gmail.com')">Contact <iconify-icon icon="logos:google-gmail" width="17"></iconify-icon></button></p>
+              <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+            </div>
+            <div class="pcard">
+              <h1 style="font-family: Ubuntu; font-size: 30px">Arshavir<br>Shareghi</h1>
+              <p class="ntitle">HTML & CSS support</p>
+              <div style="margin: 24px 0;"><!--
+                <a href="#"><i class="fa fa-dribbble"></i></a> 
+                <a href="#"><i class="fa fa-twitter"></i></a>  
+                <a href="#"><i class="fa fa-linkedin"></i></a>  
+                <a href="#"><i class="fa fa-facebook"></i></a>--> 
+              </div>
+              <p><button id="contbtn" onclick="alert('Email: uta.socialhub@gmail.com')">Contact <iconify-icon icon="logos:google-gmail" width="17"></iconify-icon></button></p>
+              <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+            </div>
+            <div class="pcard">
+              <h1 style="font-family: Ubuntu; font-size: 30px">Mehan<br>Alavimajd</h1>
+              <p class="ntitle">PHP support</p>
+              <div style="margin: 24px 0;"><!--
+                <a href="#"><i class="fa fa-dribbble"></i></a> 
+                <a href="#"><i class="fa fa-twitter"></i></a>  
+                <a href="#"><i class="fa fa-linkedin"></i></a>  
+                <a href="#"><i class="fa fa-facebook"></i></a>--> 
+              </div>
+              <p><button id="contbtn" onclick="alert('Email: uta.socialhub@gmail.com')">Contact <iconify-icon icon="logos:google-gmail" width="17"></iconify-icon></button></p>
+              <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+            </div>
+            <div class="pcard">
+              <h1 style="font-family: Ubuntu; font-size: 30px">Kasra<br>Abdollahnam</h1>
+              <p class="ntitle">HTML & CSS support</p>
+              <div style="margin: 24px 0;"><!--
+                <a href="#"><i class="fa fa-dribbble"></i></a> 
+                <a href="#"><i class="fa fa-twitter"></i></a>  
+                <a href="#"><i class="fa fa-linkedin"></i></a>  
+                <a href="#"><i class="fa fa-facebook"></i></a>--> 
+              </div>
+              <p><button id="contbtn" onclick="alert('Email: uta.socialhub@gmail.com')">Contact <iconify-icon icon="logos:google-gmail" width="17"></iconify-icon></button></p>
+              <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+            </div>
+          </div>
+          <hr id="dve">
+        </div>
+        <br><br><br>
+        <div>
+          <img class="icoend" src="https://bayanbox.ir/view/9003252287432917985/UTA-i.png"><br><img class="dj" src="https://bayanbox.ir/view/4093347214064059292/pngwing.com.png"><br>
+        </div>
+    </body>
+</html>
 {% endblock %}
