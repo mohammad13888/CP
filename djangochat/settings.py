@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-!79n+mp+d)1-=z7w5ee9f5*74mhqbene^c*89j@(1gsot5&t@o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["0.0.0.0","192.168.1.100",'127.0.0.1']
+ALLOWED_HOSTS = ["0.0.0.0","192.168.1.100"]
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_REDIRECT_URL = '/rooms/'
 LOGIN_URL = '/login/'
@@ -44,8 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'channels',
     'core',
-    'private',
     'room',
+    'private',
 ]
 
 MIDDLEWARE = [

@@ -3,6 +3,7 @@
 {% block title %}Rooms | {% endblock %}
 
 {% block content %}
+
 <div class="p-10 lg:p-20 text-center">
     <h1 class="text-3xl lg:text-6xl text-white"  style="font-family:B Nazanin">اتاق ها</h1>
 </div>
@@ -13,7 +14,7 @@
             <div class="p-4 bg-white shadow rounded-xl text-center">
                 <h2 class="mb-5 text-2xl font-semibold"  style="font-family:B Nazanin">{{ room.name }}</h2>
 
-                <a href="{% url 'room' room.slug %}" class="px-5 py-3 block rounded-xl text-white bg-teal-600 hover:bg-teal-700"  style="font-family:B Nazanin">عضویت</a>
+                <a href="{{room.slug }}" class="px-5 py-3 block rounded-xl text-white bg-teal-600 hover:bg-teal-700"  style="font-family:B Nazanin">ورود</a>
             </div>
         </div>
     {% endfor %}

@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="p-10 lg:p-20 text-center">
-    <h1 class="text-3xl lg:text-6xl text-white"  style="font-family:B Nazanin">{{ room.name }}</h1>
+    <h1 class="text-3xl lg:text-6xl text-white"  style="font-family:B Nazanin">{{usa}}</h1>
     {{ user }}
 </div>
 
@@ -15,6 +15,7 @@
         {% if m.user.username == user %}
         <button onclick="del('{{ m.id }}')" id="chat-message-delete" name="{{ m }}" style="font-family:B Nazanin">حذف</button>
         {% endif %}
+
     </div>{% endfor %}
     </div>
 </div>
@@ -43,14 +44,15 @@
     const chatSocket = new WebSocket(
         'ws://'
         + window.location.host
-        + '/ws/'
+
+        + '/ws/pv/'
         + roomName
         + '/'
     );
 
     chatSocket.onclose = function(e) {
         console.log('onclose')
-        location.reload();
+
 
     }
 
