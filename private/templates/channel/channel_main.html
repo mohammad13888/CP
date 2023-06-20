@@ -1,0 +1,14 @@
+{% extends 'core/pv_base.html' %}
+
+{% block title %}Main Channel {% endblock %}
+
+{% block content %}
+{% if user.is_superuser %}
+    <p>User is a superuser.</p>
+{% else %}
+    <p>User is not a superuser.</p>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

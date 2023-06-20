@@ -1,18 +1,15 @@
-{% extends 'core/base.html' %}
+{% extends 'core/pv_base.html' %}
 
-{% block title %}Rooms | {% endblock %}
+{% block title %}Private | {% endblock %}
+<script src="//unpkg.com/alpinejs" defer></script>
 
 {% block content %}
-
 <div class="p-10 lg:p-20 text-center">
-    <h1 class="text-3xl lg:text-6xl text-white"  style="font-family:B Nazanin">اتاق ها</h1>
+  <h1 class="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-6xl dark:text-white cursor-pointer">Your private rooms</h1>
 </div>
 <div>
     <style>
-        *{
-            font-family: B Nazanin;
-        }
-        .container{
+      .contain2er{
             margin: auto;
             width:fit-content;
         }
@@ -77,25 +74,17 @@
         }
         </style>
 
-<div id="13" class="container">   
+<div id="13" class="contain2er">   
 <form method="post">
     {% csrf_token %}
-    <label for="username">نام کاربری</label>
+    <label for="username">Username</label>
     <input id="username" type="text" name="username" maxlength="100" required>    
-    <input type="submit" value="ورود">
+    <input type="submit" value="Enter">
 </form>
 </div>
-<div class="w-full flex flex-wrap items-center">
-  {% load custom_tags %}
 
-{% for i in len|get_range %}
-        <div class="w-full lg:w-1/4 px-3 py-3">
-            <div class="p-4 bg-white shadow rounded-xl text-center">
-                <h2 class="mb-5 text-2xl font-semibold"  style="font-family:B Nazanin">{{ rooms|get_from_dict:i }}</h2>
 
-                <a href="{{ links|get_from_dict:i }}" class="px-5 py-3 block rounded-xl text-white bg-teal-600 hover:bg-teal-700"  style="font-family:B Nazanin">عضویت</a>
-            </div>
-        </div>
-    {% endfor %}
-</div>
+
+{% block scripts %}
+{% endblock %}
 {% endblock %}

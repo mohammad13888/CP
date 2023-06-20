@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="95c27023-578a-43dc-8af0-6b3f453b4691" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangochat/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangochat/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/121.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/122.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/123.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/124.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/125.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/126.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/127.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/128.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/129.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/130.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/132.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/133.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/138.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/141.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/143.webm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/145.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/148.webm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/private/templates/pv_room/pvroom.html" beforeDir="false" afterPath="$PROJECT_DIR$/private/templates/pv_room/pvroom.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/private/templates/pv_room/pvrooms.html" beforeDir="false" afterPath="$PROJECT_DIR$/private/templates/pv_room/pvrooms.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/private/templates/pv_room/tst.html" beforeDir="false" afterPath="$PROJECT_DIR$/private/templates/pv_room/tst.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/private/templatetags/custom_tags.py" beforeDir="false" afterPath="$PROJECT_DIR$/private/templatetags/custom_tags.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/private/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/private/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/private/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/private/views.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="dbc3b041-9f48-4423-940a-728d14ff42d0" />
+        <option name="url" value="https://github.com/mohammad13888/RajApp.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2N0sKgmsfP9rFjcTfUeFdHFLhKf" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/mhn/Desktop/Programming/RajApp/public&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="sd" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="RajApp" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/private" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/private/sd.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.sd" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="95c27023-578a-43dc-8af0-6b3f453b4691" name="Changes" comment="" />
+      <created>1678812271390</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1678812271390</updated>
+    </task>
+    <servers />
+  </component>
+</project>

@@ -4,146 +4,109 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" href="https://bayanbox.ir/view/9003252287432917985/UTA-i.png">
-        <title>{% block title %}{% endblock %}UTA - Chat</title>
+
+        <title>{% block title %}{% endblock %}RajApp Chat</title>
+        <script src="//unpkg.com/alpinejs" defer></script>
 
         <script src="https://cdn.tailwindcss.com"></script>
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-              var images = document.querySelectorAll('img');
-              
-              images.forEach(function(img) {
-                var imageUrl = img.getAttribute('src');
-                var newImage = new Image();
-                newImage.onload = function() {
-                  img.src = imageUrl;
-                };
-                newImage.src = imageUrl;
-              });
-            });
-          </script>
+
         <style>
             .messages {
                 height: 400px;
-
                 overflow-y: auto;
             }
         </style>
     </head>
-
-    <body class="bg-teal-600">
-        <style>
-            .navt
-              {
-                font-family: Ubuntu;
-              }
-            #navbar {
-                overflow: hidden;
-                background-color: #f1f1f1;
-                padding: 90px 10px;
-                transition: 0.4s;
-                position: fixed;
-                width: 100%;
-                top: 0;
-                z-index: 99;
-              }
-              
-              #navbar .a {
-                float: left;
-                color: black;
-                text-align: center;
-                padding: 12px;
-                text-decoration: none;
-                font-size: 18px; 
-                line-height: 25px;
-                border-radius: 4px;
-              }
-              
-              #navbar #logo {
-                transition: 0.2s;
-                width: 110px;
-                margin-top: -30px;
-                margin-left: 35;
-              }
-              
-              #logo:hover {
-                transition: 0.2s;
-                width: 110px;
-                margin-top: -30px;
-                margin-left: 35;
-                background-color: #ddd;
-                border-radius: 4px;
-              }
-              
-              #navbar .a:hover {
-                background-color: #ddd;
-                color: black;
-                transition: 0.2s;
-              }
-              
-              #navbar .a.active {
-                background-color: #4658bd;
-                color: white;
-              }
-              #navbar .a.logout {
-              color: crimson;
-              
-              }
-              #navbar-right {
-                float: right;
-              }
-              
-              @media screen and (max-width: 580px) {
-                #navbar {
-                  padding: 20px 10px !important;
-                }
-                #navbar .a {
-                  float: none;
-                  display: block;
-                  text-align: left;
-                }
-                #navbar-right {
-                  float: none;
-                }
-              }
-              
-            </style>  
-              <div id="navbar">
-            
-                <a href="/"><img id="logo" src="https://bayanbox.ir/view/7142487906364637611/UTA.png"></a>
-                <div id="navbar-right">
-                  <a class="active a navt" href="/">Home</a>
-                  <a class="a navt" href="/chat/">chat</a>
-                  <a class="a navt" href="/feedback/">Feedback</a>
-                  {%     if not user.is_authenticated %}
-                  <a class="a navt" href="/sign-up/">Create UTA-Chat account</a>
-                  <a class="a navt" href="/login/">Login</a>
-                  {% endif %}
-                  {%     if user.is_authenticated %}
-                  <a class="logout a navt" href="/logout/">Logout</a>
-                  {% endif %}
+        <script>
+            tailwind.config = {
+                darkMode: 'class',
+            }
+        </script>
+    <body class="bg-gray-100" x-data="{ open: true, darkMode: false }">
+        <nav x-data="{ isOpen: false }" class="relative bg-white shadow dark:bg-gray-800">
+            <div class="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
+                <div class="flex items-center justify-between">
+                    <a href="/">
+                        <img class="w-auto h-40 sm:h-26" src="https://s29.picofile.com/file/8464497284/54.pn" alt="">
+                    </a>
+        
+                    <!-- Mobile menu button -->
+                    <div class="flex lg:hidden">
+                        <button x-cloak @click="isOpen = !isOpen" type="button" class="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400" aria-label="toggle menu">
+                            <svg x-show="!isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="display: none;">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16"></path>
+                            </svg>
+                    
+                            <svg x-show="isOpen" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" >
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
-              </div>
-              <br><br><br><br><br><br><br><br><br><br><br><br>
-              <script>
-              // When the user scrolls down 80px from the top of the document, resize the navbar's padding and the logo's font size
-              window.onscroll = function() {scrollFunction()};
-              
-              function scrollFunction() {
-                if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-                  document.getElementById("navbar").style.padding = "30px 10px";
-                  document.getElementById("logo").style.fontSize = "25px";
-                } else {
-                  document.getElementById("navbar").style.padding = "80px 10px";
-                  document.getElementById("logo").style.fontSize = "35px";
-                }
-              }
-            </script>
+        
+                <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+                <div x-cloak :class="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']" class="absolute inset-x-0 z-20 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center">
+                    <div class="flex flex-col md:flex-row md:mx-6">
+                        {% if request.user.is_authenticated %}
 
+                        <a class="my-2 text-gray-700 transition-colors duration-300 transform  hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="/">Home</a>
+                        <a class="my-2 text-gray-700 transition-colors duration-300 transform  hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="/chat/">Chats</a>
+                        <a class="my-2 text-gray-700 transition-colors duration-300 transform  hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="/rooms/">Rooms</a>
+                        <a class="my-2 text-gray-700 transition-colors duration-300 transform  hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="/channel/">Channels</a>
+                        <a class="my-2 text-red-600 transition-colors duration-300 transform hover:text-red-700 dark:hover:text-red-700 md:mx-4 md:my-0" href="/logout/">Logout</a>
+                    
+                        {% else %}
+                        <a class="my-2 text-gray-700 transition-colors duration-300 transform  hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="/">Home</a>
+                        <a class="my-2 text-gray-700 transition-colors duration-300 transform  hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="/login/">Login</a>
+                        <a class="my-2 text-gray-700 transition-colors duration-300 transform  hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="/signup/">Register</a>
+                    
+                    
+                        {% endif %}
+                    </div>
+
+                </div>
+            </div>
+        </nav>
         {% block content %}
         {% endblock %}
 
         {% block scripts %}
         {% endblock %}
+        <br><br><br><br><br><br>
+<footer class=" text-white bg-gray-800 ">
+    <div class="container p-6 mx-auto">
+        <div class="lg:flex text-center ">
+                <div class="-mx-6 lg:w-2/5">
+                    <a href="/">
+                        <img style="width: 30%; margin: auto;" src="https://s29.picofile.com/file/8464497284/54.png" alt="">
+                    </a>
+            </div>
+
+            <div class="mt-6 lg:mt-0 lg:flex-1">
+                <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+
+                    <div>
+                        <h3 class="text-gray-700 uppercase dark:text-white">Blog</h3>
+                        <a href="#" class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">News</a>
+                    </div>
+
+
+                    <div>
+                        <h3 class="text-gray-700 uppercase dark:text-white">Contact</h3>
+                        <span class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"> +98 21 2297 0060</span>
+                        <span class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">sru@srttu.edu</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="h-px my-6 bg-gray-200 border-none dark:bg-gray-700">
+
+        <div>
+            <p class="text-center text-gray-500 dark:text-gray-400">© CopyRight 2023 by MHN</p>
+        </div>
+    </div>
+</footer>
     </body>
 </html>
+

@@ -9,7 +9,7 @@ import djangochat
 
 import djangochat.routing
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', '.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'djangochat.settings')
 
 application = ProtocolTypeRouter({
     "http": get_asgi_application(),

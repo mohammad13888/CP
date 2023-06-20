@@ -4,121 +4,45 @@
 
 {% block content %}
 <div class="p-10 lg:p-20 text-center">
-    <h1 class="text-3xl lg:text-6xl text-white" style="font-family:B Nazanin">ورود به پیام رسان دانشگاه شهید رجایی</h1>
-</div>
-<link rel="icon" href="https://bayanbox.ir/view/9003252287432917985/UTA-i.png">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <h1 class="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-3xl dark:text-white">Enter RajApp Chat</h1>
+    </div>
 
-<style>
-    .container {
-      font-family: Arial;
-      border: 2px solid #dedede;
-      background-color: #f1f1f1;
-      border-radius: 5px;
-      padding: 10px;
-      margin: 10px 0;
-      margin-top: 1%;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
+    <section class="max-w-3xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
     
-    .darker {
-      border-color: #ccc;
-      background-color: #ddd;
-    }
-    
-    .container::after {
-      content: "";
-      clear: both;
-    }
-    
-    .container img {
-      max-width: 60px;
-      width: 100%;
-      border-radius: 50%;
-      float: left;
-    }
-    
-    .container img.right {
-      float: right;
-    }
-    
-    .g-recaptcha{
-      position:relative;
-      left: 29%;
-      top: -1px;
-      height: 0%;
-      width: 60%;
-    }
-    * {box-sizing: border-box;}
-    
-    body { 
-      margin: 0 auto;
-      font-family: Arial, Helvetica, sans-serif , Ubuntu;
-      background-color: #ffffff;
-    }
-    </style>        
+        <form method="post" action=".">
+            {% csrf_token %}
 
-    <header>
-        <h2 style="font-family: Fredoka One; font-size: 800%; color: #4658bd; text-align: center; margin-top: 0%;">Login</h2>
-    </header>
-    <style>
-        input[type=text], select {
-        width: 100%;
-        padding: 2% 20px;
-        margin: 10px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        font-family: Ubuntu;
-        font-size: medium;
-        }
-
-        input[type=password], select {
-        width: 100%;
-        padding: 2% 20px;
-        margin: 10px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        font-family: Ubuntu;
-        font-size: medium;
-
-        }
-        input[type=submit] {
-        width: 100%;
-        background-color: #4658bd;
-        color: white;
-        padding: 14px 20px;
-        margin: 8px 0;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        }
+            <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-1">
+                <div>
+                    <label class="text-gray-700 dark:text-gray-200" for="username">Username</label>
+                    <input id="username" name="username" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                </div>
     
-        input[type=submit]:hover {
-        background-color: #334191;  
-        align-self: center;
-        }
     
-        div[id='13'] {
-        border-radius: 5px;
-        background-color: #f2f2f2;
-        padding: 20px;
-        }
-        </style>
+                <div>
+                    <label class="text-gray-700 dark:text-gray-200" for="password">Password</label>
+                    <input id="password" type="password" name="password" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring">
+                </div>
     
-    <div id="13" class="container">
-        {% include 'messages.html' %}
+            </div>
+            {% if form.errors %}
+            {% for field in form %}
+                {% for error in field.errors %} 
+                    <div class="mb-5 p-4 rounded-xl bg-red-300 text-white">
+                        <p>{{ error|escape }}</p>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
+            <div class="flex justify-end mt-6">
+                <button class="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Login</button>
+            </div>
+        </form>
+    </section>
 
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
 
-        <input type="submit" value="Submit">
-    </form>
-</div>
+
+
+
+
 {% endblock %}

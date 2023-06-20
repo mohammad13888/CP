@@ -1,36 +1,147 @@
-{% extends 'core/base.html' %}
+{% extends 'core/pv_base.html' %}
 
-{% block title %}{{ room.name }} | {% endblock %}
+{% block title %}{{ usa }} | {% endblock %}
+{% load custom_tags %}
 
 {% block content %}
 <div class="p-10 lg:p-20 text-center">
-    <h1 class="text-3xl lg:text-6xl text-white"  style="font-family:B Nazanin">{{usa}}</h1>
-    {{ user }}
+  <h1 class="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-6xl ">{{usa}}</h1>
+
 </div>
 
-<div class="lg:w-2/4 mx-4 lg:mx-auto p-4 bg-white rounded-xl">
-    <div class="chat-messages space-y-3" id="chat-messages">
-        {% for m in messages %}
-        <div id="{{m.id}}"><pre style="font-family:B Nazanin; font-size: large;"><b>{{ m.user.username }}</b>:{{ m.content }}<br></pre>
-        {% if m.user.username == user %}
-        <button onclick="del('{{ m.id }}')" id="chat-message-delete" name="{{ m }}" style="font-family:B Nazanin">حذف</button>
-        {% endif %}
 
-    </div>{% endfor %}
+
+
+
+<script src="//unpkg.com/alpinejs" defer></script>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<div class="flex flex-col flex-auto h-90 p-6">
+  <div class="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-200 h-full p-4">
+    <div class="flex flex-col h-full overflow-x-auto mb-4">
+      <div class="flex flex-col h-full">
+        <div class="gap-y-2 h-80 overflow-auto" id="chat-messages">
+                {% for m in messages %}
+                
+
+                {% if m.user.username == user %}
+                <div id="{{m.id}}" class="col-start-6 col-end-13 p-3 rounded-lg">
+                  <div class="flex items-center justify-start flex-row-reverse">
+                    <div
+                      class="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0"
+                    >
+                    {{ user|first_char }}
+                    </div>
+                    <div
+                      class="relative mr-3 text-sm bg-indigo-100 py-2 px-4 shadow rounded-xl"
+                    >
+                      <div class="text-justify "><span id="@{{m.id}}">{{ m.content }}</span></div>
+                      {% if m.file %}
+                      <a href="/media/{{ m.file }}" target="_blank">File</a> <br>{% endif %}
+                      <button onclick="del('{{ m.id }}')" id="chat-message-delete" name="{{ m }}" >Delete</button> ,
+                      <button onclick="edit('{{ m.id }}')"  id="chat-message-edit" name="{{ m }}" >Edit</button>
+                      , <button onclick="copy('{{ m.content }}')"  id="chat-message-edit" name="{{ m }}">Copy</button>
+              
+                    </div>
+                  </div>
+                  
+                </div>
+
+                {% else %}
+                <div id="{{m.id}}" class="col-start-1 col-end-8 p-3 rounded-lg">
+                  <div class="flex flex-row items-center">
+                    <div
+                      class="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0"
+                    >
+                    {{ usa|first_char }}
+                    </div>
+                    <div
+                      class="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl"
+                    >
+                      <div class="text-justify">{{ m.content }}</div>
+                              {% if m.file %}
+        <a href="/media/{{ m.file }}" target="_blank">File</a> <br>{% endif %}
+         <button onclick="copy('{{ m.content }}')"  id="chat-message-edit" name="{{ m }}">Copy</button>
+
+                    </div>
+                  </div>
+                </div>
+				{% endif %}
+
+        {% endfor %}
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+          <form method="post" action="."></form>
+          <div
+            class="flex flex-row items-center h-16 rounded-xl bg-white w-full px-4"
+          >
+            <div>
+              <input id= "file-input" type="file" name="file" style="display: none;">
+              <button  id="file-button"
+                class="flex items-center justify-center text-gray-400 hover:text-gray-600"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+            <div class="flex-grow ml-4">
+              <div class="relative w-full">
+                <input id="chat-message-input" name="content"
+                  type="text"
+                  class="flex w-full border rounded-xl focus:outline-none  focus:border-indigo-300 pl-4 h-10"
+                />
+              </div>
+            </div>
+            <div class="ml-4">
+              <button id="chat-message-submit"
+                class="flex items-center justify-center bg-indigo-500 hover:bg-indigo-600 rounded-xl text-white px-4 py-1 flex-shrink-0"
+              >
+                <span>Send</span>
+                <span class="ml-2">
+                  <svg
+                    class="w-4 h-4 transform rotate-45 -mt-px"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                    ></path>
+                  </svg>
+                </span>
+              </button>
+            </div>
+          
+          </div>
+          </form>
+          <p id="selector"></p>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 
-<div class="lg:w-2/4 mt-6 mx-4 lg:mx-auto p-4 bg-white rounded-xl">
-    <form method="post" action="." class="flex">
-        <input type="text" name="content" class="flex-1 mr-3" placeholder="پیام شما" id="chat-message-input" autocomplete="off">
-
-        <button 
-            class="px-5 py-3 rounded-xl text-white bg-teal-200 hover:bg-teal-300"
-            id="chat-message-submit"
-             style="font-family:B Nazanin"
-        >ارسال</button>
-    </form>
-</div>
 {% endblock %}
 
 {% block scripts %}
@@ -52,9 +163,10 @@
 
     chatSocket.onclose = function(e) {
         console.log('onclose')
-
-
     }
+
+
+
 
     chatSocket.onmessage = function(e) {
         const data = JSON.parse(e.data);
@@ -63,20 +175,95 @@
             document.getElementById(data.message__id).remove();
 
         }
+        else if (data.command == "edit") {
+
+            var submit = document.getElementById("@"+data.edited_id);
+            submit.innerHTML=data.m_message;
+            document.querySelector('#chat-message-submit').onclick = chat_send;
+
+        }
+        else if(data.command == "file_message")
+        {
+        
+            if (stringWithoutSpaces==stringWithoutSpaces1) {
+            document.querySelector('#chat-messages').innerHTML += (`
+                  <div id="${data.iddd}" class="col-start-6 col-end-13 p-3 rounded-lg">
+                  <div class="flex items-center justify-start flex-row-reverse">
+                    <div
+                      class="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0"
+                    >
+                      ${userName[0]}
+                    </div>
+                    <div
+                      class="relative mr-3 text-sm bg-indigo-100 py-2 px-4 shadow rounded-xl"
+                    >
+                      <div class="text-justify"><span id="@${data.iddd}">${data.message}</span></div>
+                      <a href="/media/${data.file_name}" target="_blank">File</a><br>
+                      <button onclick="del('${data.iddd}')" id="chat-message-delete" name="{{ m }}" >Delete</button> ,
+                      <button onclick="edit('${data.iddd}')"  id="chat-message-edit" name="{{ m }}" >Edit</button>
+                      , <button onclick="copy('${data.m_message}') name="{{ m }}">Copy</button></div></div></div>`)
+          }
+        else{
+            document.querySelector('#chat-messages').innerHTML += (`
+                  <div id="${data.iddd}" class="col-start-1 col-end-8 p-3 rounded-lg">
+                  <div class="flex flex-row items-center">
+                    <div
+                      class="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0"
+                    >
+                      ${data.username[0]}
+                    </div>
+                    <div
+                      class="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl"
+                    >
+                      <div class="text-justify"><span id="@${data.iddd}">${data.message}</span></div>
+                      <a href="/media/${data.file_name}" target="_blank">File</a><br>
+
+                   <button onclick="copy('${data.m_message}')"   name="{{ m }}">Copy</button></div></div></div>`);
+         }
+    }
         else if(data.command == "add")
         {
         if (data.message) {
         
-            if (stringWithoutSpaces==stringWithoutSpaces1) {
-                
-         
-            document.querySelector('#chat-messages').innerHTML += (`<div id="${data.iddd}">`+'<b>' + data.username + '</b>: ' + data.message + '<br>'+`<button onclick="del('${data.iddd}')" id="chat-message-delete" name="{{ m }}" style="font-family:B Nazanin">حذف</button>`+`</div>`);
-        }
+            if (stringWithoutSpaces==stringWithoutSpaces1) {         
+                document.querySelector('#chat-messages').innerHTML += (`
+                  <div id="${data.iddd}" class="col-start-6 col-end-13 p-3 rounded-lg">
+                  <div class="flex items-center justify-start flex-row-reverse">
+                    <div
+                      class="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0"
+                    >
+                    ${userName[0]}
+                    </div>
+                    <div
+                      class="relative mr-3 text-sm bg-indigo-100 py-2 px-4 shadow rounded-xl"
+                    >
+                      <div class="text-justify"><span id="@${data.iddd}">${data.message}</span></div>
+                      <button onclick="del('${data.iddd}')" id="chat-message-delete" name="{{ m }}" >Delete</button> ,
+                      <button onclick="edit('${data.iddd}')"  id="chat-message-edit" name="{{ m }}" >Edit</button>
+                      , <button onclick="copy('${data.m_message}') name="{{ m }}">Copy</button></div></div></div>`)
+              
+              }
         else{
-            document.querySelector('#chat-messages').innerHTML += (`<div id="${data.iddd}">`+'<b>' + data.username + '</b>: ' + data.message + '<br>'+`</div>`);
+            document.querySelector('#chat-messages').innerHTML += (`
+                  <div id="${data.iddd}" class="col-start-1 col-end-8 p-3 rounded-lg">
+                  <div class="flex flex-row items-center">
+                    <div
+                      class="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0"
+                    >
+                    ${data.username[0]}
+
+                    </div>
+                    <div
+                      class="relative ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl"
+                    >
+                      <div class="text-justify"><span id="@${data.iddd}">${data.message}</span></div>
+
+                   <button onclick="copy('${data.m_message}')"   name="{{ m }}">Copy</button></div></div></div>`);
 
         }
-        } 
+        
+        }
+
         else {
 
             alert('The message was empty!')
@@ -85,45 +272,172 @@
     }
         scrollToBottom();
     };
+    document.getElementById('file-button').addEventListener('click', function() {
+  document.getElementById('file-input').click();
+});
 
-    document.querySelector('#chat-message-input').focus();
-    document.querySelector('#chat-message-input').onkeyup = function(e) {
-        if (e.keyCode === 13) {
-            document.querySelector('#chat-message-submit').click();
-        }
-    };
+
     function del(message) {
-
-        chatSocket.send(JSON.stringify({
+        console.log({
+            'command': 'delete',
             'message': message,
             'username': userName,
             'room': roomName,
-            'delete': 1
+        })
+
+        chatSocket.send(JSON.stringify({
+            'command': 'delete',
+            'message': message,
+            'username': userName,
+            'room': roomName,
+            
         }));
     }
 
 
-    document.querySelector('#chat-message-submit').onclick = function(e) {
+    document.getElementById('file-input').addEventListener('change', function(e) {
+  if (e.target.files[0]) {
+    document.getElementById('selector').innerHTML='selected';
+  }
+});
+    
+    
+    
+    function copy(content) {
+    var input = document.createElement('input');
+    input.setAttribute('value', content);
+    document.body.appendChild(input);
+    input.select();
+    var result = document.execCommand('copy');
+    document.body.removeChild(input);
+    document.getElementById('bootstrap-alert').style.display = 'block';
+    setTimeout(function(){document.getElementById('bootstrap-alert').style.display = 'none'}, 1700);
+    alert('success!');
+    return result;
+    }
+
+
+
+
+    function edit(message) {
+        var input = document.getElementById('chat-message-input');
+        input.value = document.getElementById("@"+`${message}`).textContent;
+        var submit = document.getElementById('chat-message-submit');
+        submit.name=message;
+        document.querySelector('#chat-message-submit').onclick = chat_edit;
+
+    }    
+    document.querySelector('#chat-message-submit').onclick = chat_send;
+    
+
+    function chat_edit(e) {
         e.preventDefault()
 
         const messageInputDom = document.querySelector('#chat-message-input');
         const message = messageInputDom.value;
+        var submit = document.getElementById('chat-message-submit');
 
-
-        if (message) {
-
-        chatSocket.send(JSON.stringify({
+        console.log({
+            'command': 'edit',
             'message': message,
             'username': userName,
             'room': roomName,
-            'delete':0
+        })
+        if (message) {
+
+        chatSocket.send(JSON.stringify({
+            'command': 'edit',
+            'message': message,
+            'id': submit.name,
+            'room': roomName,
         }));
             
     }
         messageInputDom.value = '';
 
         return false
+    }
+
+
+
+function chat_send(e) {
+  e.preventDefault();
+
+  var fileInput = document.getElementById('file-input');
+    const messageInputDom = document.querySelector('#chat-message-input');
+    const message = messageInputDom.value;
+  if (fileInput.files.length === 0) {
+
+    console.log({
+      'command': 'message_no_file',
+      'message': message,
+      'username': userName,
+      'room': roomName,
+    });
+
+    if (message) {
+      chatSocket.send(
+        JSON.stringify({
+          'command': 'message_no_file',
+          'message': message,
+          'username': userName,
+          'room': roomName,
+        })
+      );
+    }
+
+    messageInputDom.value = '';
+
+    return false;
+  } else {
+    // Handle file upload here
+
+    // Access the file using fileInput.files[0]
+    var file = fileInput.files[0];
+
+    // Read file data using FileReader API
+    var reader = new FileReader();
+    reader.onload = function(event) {
+      var fileContent = event.target.result;
+
+      // Send file data via WebSocket
+      var data = {
+        'command': 'file_included_message',
+        'file': {
+          'name': file.name,
+          'content': fileContent,
+        },
+        'username': userName, // Replace with the actual username
+        'room': roomName, // Replace with the actual room name
+        'message': message,
+
+      };
+      chatSocket.send(JSON.stringify(data));
     };
+    reader.readAsDataURL(file);
+
+    // Reset file input value to allow selecting the same file again
+    fileInput.value = '';
+    document.getElementById('selector').innerHTML='';
+    messageInputDom.value = '';
+
+
+    return false;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /**
     * A function for finding the messages element, and scroll to the bottom of it.
