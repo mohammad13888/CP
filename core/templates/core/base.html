@@ -3,8 +3,9 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <link rel="icon" href="https://bayanbox.ir/view/9003252287432917985/UTA-i.png">
         <title>{% block title %}{% endblock %}RajApp Chat</title>
         <script src="//unpkg.com/alpinejs" defer></script>
 
@@ -14,6 +15,101 @@
             .messages {
                 height: 400px;
                 overflow-y: auto;
+            }
+
+            .container2 {
+            max-width: 1170px;
+            margin: auto;
+            }
+
+            .row2 {
+            display: flex;
+            flex-wrap: wrap;
+            }
+
+            .ulfoot {
+            list-style: none;
+            }
+
+            .footer {
+            background-color: #24262b;
+            padding: 70px 0;
+            }
+
+            .footer-col {
+            width: 25%;
+            padding: 0 15px;
+            }
+
+            .footer-col .h4foot {
+            font-size: 18px;
+            color: #ffffff;
+            text-transform: capitalize;
+            margin-bottom: 35px;
+            font-weight: 500;
+            position: relative;
+            }
+
+            .footer-col .h4foot::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            background-color: /*#e91e63*/ #4658bd;
+            height: 2px;
+            box-sizing: border-box;
+            width: 50px;
+            }
+
+            .footer-col .ulfoot .lifoot:not(:last-child) {
+            margin-bottom: 10px;
+            }
+
+            .footer-col .ulfoot .lifoot .afoot {
+            font-size: 16px;
+            text-transform: capitalize;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 300;
+            color: #bbbbbb;
+            display: block;
+            transition: all 0.3s ease;
+            }
+
+            .footer-col .ulfoot .lifoot .afoot:hover {
+            color: #ffffff;
+            padding-left: 8px;
+            }
+
+            .footer-col .social-links .afoot {
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            background-color: rgba(255, 255, 255, 0.2);
+            margin: 0 10px 10px 0;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            color: #ffffff;
+            transition: all 0.5s ease;
+            }
+
+            .footer-col .social-links .afoot:hover {
+            color: #24262b;
+            background-color: #ffffff;
+            }
+
+            @media (max-width: 767px) {
+            .footer-col {
+                width: 50%;
+                margin-bottom: 30px;
+            }
+            }
+
+            @media (max-width: 574px) {
+            .footer-col {
+                width: 100%;
+            }
             }
         </style>
     </head>
@@ -27,7 +123,7 @@
             <div class="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
                 <div class="flex items-center justify-between">
                     <a href="/">
-                        <img class="w-auto h-40 sm:h-26" src="https://s29.picofile.com/file/8464497284/54.pn" alt="">
+                        <img class="w-auto h-40 sm:h-26" src="https://bayanbox.ir/view/7142487906364637611/UTA.png" alt="">
                     </a>
         
                     <!-- Mobile menu button -->
@@ -49,15 +145,15 @@
                     <div class="flex flex-col md:flex-row md:mx-6">
                         {% if request.user.is_authenticated %}
 
-                        <a class="my-2 text-gray-700 transition-colors duration-300 transform  hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="/">Home</a>
-                        <a class="my-2 text-gray-700 transition-colors duration-300 transform  hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="/chat/">Chats</a>
-                        <a class="my-2 text-gray-700 transition-colors duration-300 transform  hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="/channel/">Channels</a>
-                        <a class="my-2 text-red-600 transition-colors duration-300 transform hover:text-red-700 dark:hover:text-red-700 md:mx-4 md:my-0" href="/logout/">Logout</a>
+                        <a class="my-2 text-gray-700 transition-colors duration-300 transform  hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" style="font-size: 20px" href="/">Home</a>
+                        <a class="my-2 text-gray-700 transition-colors duration-300 transform  hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" style="font-size: 20px" href="/chat/">Chats</a>
+                        <a class="my-2 text-gray-700 transition-colors duration-300 transform  hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" style="font-size: 20px" href="/channel/">Channels</a>
+                        <a class="my-2 text-red-600 transition-colors duration-300 transform hover:text-red-700 dark:hover:text-red-700 md:mx-4 md:my-0" style="font-size: 20px" href="/logout/">Logout</a>
                     
                         {% else %}
-                        <a class="my-2 text-gray-700 transition-colors duration-300 transform  hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="/">Home</a>
-                        <a class="my-2 text-gray-700 transition-colors duration-300 transform  hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="/login/">Login</a>
-                        <a class="my-2 text-gray-700 transition-colors duration-300 transform  hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" href="/signup/">Register</a>
+                        <a class="my-2 text-gray-700 transition-colors duration-300 transform  hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" style="font-size: 20px" href="/">Home</a>
+                        <a class="inup my-2 text-gray-700 transition-colors duration-300 transform  hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" style="font-size: 20px" href="/login/">Login</a>
+                        <a class="inup my-2 text-gray-700 transition-colors duration-300 transform  hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0" style="font-size: 20px" href="/signup/">Register</a>
                     
                     
                         {% endif %}
@@ -71,41 +167,44 @@
 
         {% block scripts %}
         {% endblock %}
-        <br><br><br><br><br><br>
-<footer class=" text-white bg-gray-800 ">
-    <div class="container p-6 mx-auto">
-        <div class="lg:flex text-center ">
-                <div class="-mx-6 lg:w-2/5">
-                    <a href="/">
-                        <img style="width: 30%; margin: auto;" src="https://s29.picofile.com/file/8464497284/54.png" alt="">
-                    </a>
-            </div>
-
-            <div class="mt-6 lg:mt-0 lg:flex-1">
-                <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-
-                    <div>
-                        <h3 class="text-gray-700 uppercase dark:text-white">Blog</h3>
-                        <a href="#" class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">News</a>
-                    </div>
-
-
-                    <div>
-                        <h3 class="text-gray-700 uppercase dark:text-white">Contact</h3>
-                        <span class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"> +98 21 2297 0060</span>
-                        <span class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">sru@srttu.edu</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <hr class="h-px my-6 bg-gray-200 border-none dark:bg-gray-700">
-
-        <div>
-            <p class="text-center text-gray-500 dark:text-gray-400">© CopyRight 2023 by MHN</p>
-        </div>
-    </div>
-</footer>
+        <footer class="footer">
+			<div class="container2">
+			  <div class="row2">
+				<div class="footer-col">
+				  <h4 class="h4foot">company</h4>
+				  <ul class="ulfoot">
+					<li class="lifoot"><a class="afoot" href="#">about us</a></li>
+					<li class="lifoot"><a class="afoot" href="#">our services</a></li>
+					<li class="lifoot"><a class="afoot" href="#">privacy policy</a></li>
+				  </ul>
+				</div>
+				<div class="footer-col">
+				  <h4 class="h4foot">get help</h4>
+				  <ul class="ulfoot">
+					<li class="lifoot"><a class="afoot" href="#">FAQ</a></li>
+					<li class="lifoot"><a class="afoot" href="#">Feedback</a></li>
+					<li class="lifoot"><a class="afoot" href="#">payment options</a></li>
+				  </ul>
+				</div>
+				<div class="footer-col">
+				  <h4 class="h4foot">Social Media</h4>
+				  <ul class="ulfoot">
+					<li class="lifoot"><a class="afoot" href="#">UTA - Chat</a></li>
+					<li class="lifoot"><a class="afoot" href="#">UTA - Twitter</a></li>
+					<li class="lifoot"><a class="afoot" href="#">UTA - Gram (soon)</a></li>
+				  </ul>
+				</div>
+				<div class="footer-col">
+				  <h4 class="h4foot">follow us</h4>
+				  <div class="social-links">
+					<a class="afoot" href="#"><i class="fa fa-github"></i></a>
+					<a class="afoot" href="#"><i class="fa fa-facebook"></i></a>
+					<a class="afoot" href="#"><i class="fa fa-telegram"></i></a>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		</footer>
     </body>
 </html>
 
