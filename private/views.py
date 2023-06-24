@@ -98,6 +98,12 @@ def fetch_api(request):
     except:
         list_link=[]
         links=[]
+    try:
+        dislist=[]
+        for i in privates:
+            dislist.append(i.display_name)
+    except:
+    	dislist=[] 
     linak = []
     for i in links:
         if i.user1 == us:
@@ -110,7 +116,9 @@ def fetch_api(request):
         'nul':len(list_link),
         'channel':user_channels,
         'link_channel':channel_link,
-        'nuls':len(channel_link)
+        'nuls':len(channel_link),
+        'dislist':dislist,
+        'dislen':len(dislist),
     }
     return JsonResponse(data)
 def changer(old_path, id):
