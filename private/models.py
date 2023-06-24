@@ -52,8 +52,8 @@ class Slug(models.Model):
        return str(self.id)
 
 class PV_Member(models.Model):
-    a=User.objects.get(username="moh")
-    user=models.ForeignKey(User, related_name='user', on_delete=models.CASCADE)
+    user=models.OneToOneField(User, on_delete=models.CASCADE)
+    display_name = models.CharField(max_length=256, default=user)
     channels=models.ManyToManyField(Channel_Room,related_name="user_channels", blank=True)
     others=models.ManyToManyField(User, related_name='pvs',blank=True)
     others_rooms=models.ManyToManyField(PV_Room, related_name='pvrs',blank=True)
