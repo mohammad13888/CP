@@ -5,8 +5,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', include('core.urls')),
-    path('rooms/', include('room.urls')),
-    path('chat/', include('private.urls')),  
+    path('chat/', include('private.urls')),
 
     path('admin/', admin.site.urls),
 ]

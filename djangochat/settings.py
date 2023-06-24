@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'channels',
     'Channel',
     'core',
-    'room',
     'private',
 ]
 

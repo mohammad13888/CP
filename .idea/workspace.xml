@@ -4,33 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95c27023-578a-43dc-8af0-6b3f453b4691" name="Changes" comment="">
+    <list default="true" id="95c27023-578a-43dc-8af0-6b3f453b4691" name="Changes" comment="Changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/djangochat/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangochat/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/121.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/122.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/123.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/124.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/125.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/126.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/127.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/128.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/129.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/130.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/132.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/133.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/138.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/141.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/143.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/145.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/148.webm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/private/templates/pv_room/pvroom.html" beforeDir="false" afterPath="$PROJECT_DIR$/private/templates/pv_room/pvroom.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/private/templates/pv_room/pvrooms.html" beforeDir="false" afterPath="$PROJECT_DIR$/private/templates/pv_room/pvrooms.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/private/templates/pv_room/tst.html" beforeDir="false" afterPath="$PROJECT_DIR$/private/templates/pv_room/tst.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/private/templatetags/custom_tags.py" beforeDir="false" afterPath="$PROJECT_DIR$/private/templatetags/custom_tags.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/private/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/private/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/private/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/private/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/room/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/room/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/room/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/room/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/room/migrations/0002_message.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/room/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/room/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/room/templates/room/room.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/room/templates/room/rooms.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/room/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/room/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/room/views.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,11 +36,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN"
-  }
-}]]></component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -68,15 +52,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/mhn/Desktop/Programming/RajApp/public&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public" />
