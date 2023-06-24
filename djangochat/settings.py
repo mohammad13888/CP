@@ -29,7 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["0.0.0.0","127.0.0.1","192.168.1.101","hellimarket.com"]
 LOGOUT_REDIRECT_URL = '/'
-LOGIN_REDIRECT_URL = '/rooms/'
+LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/login/'
 
 

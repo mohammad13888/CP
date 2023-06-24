@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="95c27023-578a-43dc-8af0-6b3f453b4691" name="Changes" comment="Changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/templates/core/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/core/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangochat/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangochat/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangochat/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangochat/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/private/templatetags/custom_tags.py" beforeDir="false" afterPath="$PROJECT_DIR$/private/templatetags/custom_tags.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/room/__init__.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/room/admin.py" beforeDir="false" />
