@@ -1,8 +1,9 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Rooms</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
- 
+    <link rel="icon" href="https://bayanbox.ir/view/9003252287432917985/UTA-i.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -104,8 +105,6 @@
                 .then(data => {
                   const names = data.names;
                   const links = data.links;
-                  const display = data.dislist;
-                  const dislen = data.dislen;
                   const nul = data.nul;
                   const channel=data.channel;
                   const link_channel=data.link_channel;
@@ -142,40 +141,4 @@
             {% block scripts %}
 
             {% endblock %}
-        <br><br><br><br><br><br><br><br><br>
-        <div style="z-index: 10000;">
-        <footer class=" text-white bg-gray-800 " >
-            <div class="container p-6 mx-auto">
-                <div class="lg:flex text-center ">
-                        <div class="-mx-6 lg:w-2/5">
-                            <a href="/">
-                                <img style="width: 30%; margin: auto;" src="https://s29.picofile.com/file/8464497284/54.png" alt="">
-                            </a>
-                    </div>
-        
-                    <div class="mt-6 lg:mt-0 lg:flex-1">
-                        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        
-                            <div>
-                                <h3 class="text-gray-700 uppercase dark:text-white">Blog</h3>
-                                <a href="#" class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">News</a>
-                            </div>
-        
-        
-                            <div>
-                                <h3 class="text-gray-700 uppercase dark:text-white">Contact</h3>
-                                <span class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline"> +98 21 2297 0060</span>
-                                <span class="block mt-2 text-sm text-gray-600 dark:text-gray-400 hover:underline">sru@srttu.edu</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        
-                <hr class="h-px my-6 bg-gray-200 border-none dark:bg-gray-700">
-        
-                <div>
-                    <p class="text-center text-gray-500 dark:text-gray-400">© CopyRight 2023 by MHN</p>
-                </div>
-            </div>
-        </footer>
-      </div>
+        <br><br><br><br>
