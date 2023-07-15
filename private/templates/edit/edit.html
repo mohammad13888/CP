@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Edit profile</title>
+</head>
+<body>  
+<div>  
+<form method="post">
+	{% csrf_token %}
+	<div>
+		<h1>{{use.display_name}} {{use.user}}</h1>
+	<div>
+		<p>display name</p>
+		<input type="text" name="display_name">
+	</div>
+	</div><br>    
+	<div>
+		<p>bio</p>
+		<input type="text" name="bio">
+	</div><br>       
+	<div>
+		<p>email</p>
+		<input type="text" name="email">
+	</div>            
+	<input type="submit" value="Submit">
+</form>
+</div>
+</body>
+</head>
