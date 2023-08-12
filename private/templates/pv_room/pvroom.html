@@ -9,7 +9,12 @@
   <link rel="icon" href="https://bayanbox.ir/view/9003252287432917985/UTA-i.png">
   <title>Enter room</title>
 </div>
-
+<style>
+  * { 
+    font-family: Vazir;
+  }
+  
+</style>
 
 
 
@@ -36,12 +41,12 @@
                     <div
                       class="relative mr-3 text-sm bg-indigo-100 py-2 px-4 shadow rounded-xl"
                     >
-                      <div class="text-justify "><span id="@{{m.id}}">{{ m.content }}</span></div>
+                      <div style="max-width:400px; word-wrap:break-word;" dir="rtl" class="text-justify "><span id="@{{m.id}}">{{ m.content }}</span></div>
                       {% if m.file %}
                       <a href="/media/{{ m.file }}" target="_blank">File</a> <br>{% endif %}
-                      <button onclick="del('{{ m.id }}')" id="chat-message-delete" name="{{ m }}" >Delete</button> ,
-                      <button onclick="edit('{{ m.id }}')"  id="chat-message-edit" name="{{ m }}" >Edit</button>
-                      , <button onclick="copy('{{ m.content }}')"  id="chat-message-edit" name="{{ m }}">Copy</button>
+                      <button onclick="del('{{ m.id }}')" id="chat-message-delete" name="{{ m }}" style="color:red; font-family: Vazir">حذف</button> ,
+                      <button onclick="edit('{{ m.id }}')"  id="chat-message-edit" name="{{ m }}" style="font-family: Vazir">ویرایش</button>
+                      , <button onclick="copy('{{ m.content }}')"  id="chat-message-edit" name="{{ m }}" style="font-family: Vazir">کپی</button>
               
                     </div>
                   </div>
@@ -105,7 +110,7 @@
             </div>
             <div class="flex-grow ml-4">
               <div class="relative w-full">
-                <input id="chat-message-input" name="content"
+                <input style="font-family: Vazir" id="chat-message-input" name="content"
                   type="text"
                   class="flex w-full border rounded-xl focus:outline-none  focus:border-indigo-300 pl-4 h-10"
                 />
@@ -115,7 +120,7 @@
               <button id="chat-message-submit"
                 class="flex items-center justify-center bg-indigo-500 hover:bg-indigo-600 rounded-xl text-white px-4 py-1 flex-shrink-0"
               >
-                <span>Send</span>
+                <span style="font-family: Vazir">ارسال</span>
                 <span class="ml-2">
                   <svg
                     class="w-4 h-4 transform rotate-45 -mt-px"
@@ -206,9 +211,9 @@
                     >
                       <div class="text-justify"><span id="@${data.iddd}">${data.message}</span></div>
                       <a href="/media/${data.file_name}" target="_blank">File</a><br>
-                      <button onclick="del('${data.iddd}')" id="chat-message-delete" name="{{ m }}" >Delete</button> ,
-                      <button onclick="edit('${data.iddd}')"  id="chat-message-edit" name="{{ m }}" >Edit</button>
-                      , <button onclick="copy('${data.m_message}') name="{{ m }}">Copy</button></div></div></div>`)
+                      <button onclick="del('${data.iddd}')" id="chat-message-delete" name="{{ m }}" style="color:red; font-family: Vazir">حذف</button> ,
+                      <button onclick="edit('${data.iddd}')"  id="chat-message-edit" name="{{ m }}" style="font-family: Vazir">ویرایش</button>
+                      , <button onclick="copy('${data.m_message}') name="{{ m }}" style="font-family: Vazir">کپی</button></div></div></div>`)
           }
         else{
             document.querySelector('#chat-messages').innerHTML += (`
@@ -244,10 +249,10 @@
                     <div
                       class="relative mr-3 text-sm bg-indigo-100 py-2 px-4 shadow rounded-xl"
                     >
-                      <div class="text-justify"><span id="@${data.iddd}">${data.message}</span></div>
-                      <button onclick="del('${data.iddd}')" id="chat-message-delete" name="{{ m }}" >Delete</button> ,
-                      <button onclick="edit('${data.iddd}')"  id="chat-message-edit" name="{{ m }}" >Edit</button>
-                      , <button onclick="copy('${data.m_message}') name="{{ m }}">Copy</button></div></div></div>`)
+                      <div style="direction: rtl" class="text-justify"><span id="@${data.iddd}">${data.message}</span></div>
+                      <button onclick="del('${data.iddd}')" id="chat-message-delete" name="{{ m }}" style="color:red; font-family: Vazir">حذف</button> ,
+                      <button onclick="edit('${data.iddd}')"  id="chat-message-edit" name="{{ m }}" style="font-family: Vazir">ویریش</button>
+                      , <button onclick="copy('${data.m_message}') name="{{ m }}" style="font-family: Vazir">کپی</button></div></div></div>`)
               
               }
         else{
