@@ -6,8 +6,10 @@
 
 <div class="p-10 lg:p-20 text-center">
     <script src="https://kit.fontawesome.com/c23313ebb4.js" crossorigin="anonymous"></script>
-    <h1 id="title" class="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-6xl dark:text-white cursor-pointer vtex">ایجاد کانال جدید</h1>
-  </div>
+    <h1 id="title" class="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-6xl dark:text-white cursor-pointer vtex">عضویت در کانال</h1><br><br>
+    <p class="text-2xl font-semibold text-center text-gray-800 capitalize lg:text-2xl dark:text-white vtex">{{room}}</p>
+  
+</div>
   <div>
       <style>
         #title
@@ -51,7 +53,6 @@
     
         div[id='13'] {
         border-radius: 5px;
-        background-color: #f2f2f2;
         padding: 20px;
         
         }
@@ -82,12 +83,11 @@
       </style>
   
   <div id="13" class="contain2er">   
-  <form method="post">
+  <form method="post"  id="invite-form" action="{% url 'channel_invite' sl %}">
       {% csrf_token %}
-      <label for="username" style="font-family: Vazir">نام کاربری</label>
-      <input id="name" placeholder="Enter the name" type="text" name="name" maxlength="100" required> 
-      <button style="font-family: Vazir" class="submit" type="submit">ایجاد کانال جدید</button>
-  </form>
+      <button id="invite-button" style="font-family: Vazir" class="submit" type="submit">عضویت</button>
+  </form>  
+
   </div>
   
   
@@ -97,4 +97,6 @@
 {% endblock %}
 
 {% block scripts %}
+
+    
 {% endblock %}

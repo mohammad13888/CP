@@ -73,13 +73,13 @@
           class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
         >
           <i class="bi bi-chat-left-fill"></i>
-          <span class="text-[15px] ml-4 text-gray-200 font-bold" style="font-family: Vazir">کانال</span>
+          <span class="text-[15px] ml-4 text-gray-200 font-bold" style="font-family: Vazir">ایجاد کانال</span>
         </div>
       </a>
     </div>
         <div class="my-4 bg-gray-600 h-[1px]"></div>
     <div id="list-pv">
-      <a href="http://127.0.0.1:8000/chat/">
+      <a href="{% url 'pv_rooms' %}">
         <div
           class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
         >
@@ -88,7 +88,6 @@
         </div>
       </a>
     </div>
-    <div class="my-4 bg-gray-600 h-[1px]"></div>
 
 </div>
     <script type="text/javascript">
@@ -112,7 +111,7 @@
                   const nuls= data.nuls;
                   if (nul!=0) {
                         for (let index = 0; index < names.length; index++) {
-                    document.getElementById("list-pv").innerHTML+=`     <a href="{% url 'pv_rooms' %}${links[index]}">  <div
+                    document.getElementById("list-pv").innerHTML+=`     <a href="{% url 'main_chat' %}${links[index]}">  <div
                     class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
                     >
 
@@ -129,7 +128,7 @@
                     >
 
                     <i class="bi bi-person-fill"></i>
-                    <span class="text-[15px] ml-4 text-gray-200 font-bold">${channel[index]}</span>
+                    <span class="text-[15px] ml-4 text-gray-200 font-bold">${channel[index].name}</span>
                     </div>
                 </a>`
               }

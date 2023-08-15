@@ -1,0 +1,30 @@
+{% extends 'core/pv_base.html' %}
+
+{% block title %}Channel{% endblock %}
+
+{% block content %}
+{% if request.user in room.admin.all %}
+    User is an administrator.
+{% endif %}
+
+{% for m in messages %}
+<div class="flex justify-center items-center ">
+    <article class="flex flex-col shadow my-4  w-full"> 
+      <!-- Article Image 
+      {% if m.file %}
+      <a href="/media/{{ m.file }}" target="_blank">File</a> <br>{% endif %}-->
+      <div class="bg-white flex flex-col items-center justify-center p-6 ">
+        <p class="text-3xl font-bold hover:text-gray-700 pb-4">{{m.title}}</p>
+        <p class="text-sm pb-3">
+          By <p class="font-semibold hover:text-gray-800 vtex">{{m.user}}</p>Published on {{m.date_added}}
+        </p><br>
+        <p class="pb-6">{{m.content}}</p>
+      </div>
+    </article>
+  </div>
+  
+{% endfor %}
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="95c27023-578a-43dc-8af0-6b3f453b4691" name="Changes" comment="Changes">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/core/frontpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/core/frontpage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/templates/core/pv_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/core/pv_base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangochat/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangochat/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/private/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/private/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/private/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/private/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/private/templates/channel/channel_main.html" beforeDir="false" afterPath="$PROJECT_DIR$/private/templates/channel/channel_main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/private/templates/pv_room/pvrooms.html" beforeDir="false" afterPath="$PROJECT_DIR$/private/templates/pv_room/pvrooms.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/private/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/private/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/private/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/private/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,11 +47,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "last_opened_file_path": "/home/mhn/Desktop/Programming/Chat-H5"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public" />
