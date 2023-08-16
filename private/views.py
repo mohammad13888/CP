@@ -73,11 +73,11 @@ def pv_rooms(request):
 
         slug = Slug.objects.get(id=1)
         if not User.objects.filter(username=username).exists():
-            return HttpResponse("User not found.")
+            return HttpResponse(" User not found.")
         use = get_object_or_404(User, username=username)
         use1 = User.objects.get(username=username)
         if use1 == us:
-            return HttpResponse("You can not make a private chat with your self.")
+            return HttpResponse(" You can not make a private chat with your self.")
         slug.data += 1
         slug.save()
         us = User.objects.get(username=request.user)
