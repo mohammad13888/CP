@@ -4,6 +4,7 @@ from django.urls import path
 urlpatterns = [
     path('', views.main_chat, name='main_chat'),
     path('start/', views.pv_rooms, name='pv_rooms'),
+    path('edit/', views.edit, name='editprofile'),
     path('fetch_api/', views.fetch_api, name='fetch-api'),
     path('channel/', views.channel, name='channel'),
     path('channel/invite/<slug:slug>/', views.channel_invite, name='channel_invite'),

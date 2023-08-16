@@ -2,29 +2,104 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Edit profile</title>
+    <title>ویرایش اطلاعت کاربری</title>
 </head>
-<body>  
-<div>  
+<body>
+<div>
+<style>
+  #title
+  {
+    font-family: Vazir;
+  }
+  .contain2er{
+    margin: auto;
+    width:fit-content;
+  }
+  input[type=text], select {
+  width: 100%;
+  padding: 2% 20px;
+  margin: 10px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: Ubuntu;
+  font-size: medium;
+
+  }
+
+  .submit {
+    transition-duration: 1s;
+  width: 100%;
+  background-color: #4658bd;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  }
+
+  .submit:hover {
+  transition-duration: 1s;
+  background-color: #334191;
+  align-self: center;
+  }
+
+  div[id='13'] {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+
+  }
+
+  @media only screen and (max-width: 584px) {
+    .container {
+      max-width: 100%;
+    }
+
+    form .user__details .input__box {
+      margin-bottom: 15px;
+      width: 100%;
+    }
+
+    form .gender__details .category {
+      width: 100%;
+    }
+
+    .container form .user__details {
+      max-height: 300px;
+      overflow-y: scroll;
+    }
+
+    .user__details::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+</style>
+<br>
+<br>
+<div id="13" class="contain2er">
 <form method="post">
 	{% csrf_token %}
 	<div>
-		<h1>{{use.display_name}} {{use.user}}</h1>
+		<h1 for="username" style="font-family: Vazir">ویرایش اطلاعات کاربری</h1>
 	<div>
-		<p>display name</p>
-		<input type="text" name="display_name">
+    <label for="username" style="font-family: Vazir">نام</label>
+		<input type="text" name="displayname" id="username" placeholder="نام و نام خانوادگی" maxlength="100" required>
 	</div>
-	</div><br>    
+	</div><br>
 	<div>
-		<p>bio</p>
-		<input type="text" name="bio">
-	</div><br>       
+    <label for="username" style="font-family: Vazir">بیو</label>
+		<input type="text" name="bio" id="username" placeholder="بیو" maxlength="100" required>
+	</div><br>
 	<div>
-		<p>email</p>
-		<input type="text" name="email">
-	</div>            
-	<input type="submit" value="Submit">
+		<label for="username" style="font-family: Vazir">ایمیل</label>
+		<input name="email" id="username" placeholder="ایمیل" type="text" maxlength="100" required>
+	</div>
+    <button style="font-family: Vazir" class="submit" type="submit"><i class='fas fa-door-open'></i>ویرایش</button>
 </form>
+</div>
 </div>
 </body>
 </head>

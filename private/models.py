@@ -65,7 +65,9 @@ class Slug(models.Model):
 class PV_Member(models.Model):
     a = User.objects.get(username="moh")
     user = models.ForeignKey(User, related_name='user', on_delete=models.CASCADE)
-    display_name = models.CharField(max_length=256, default=user)
+    display_name = models.CharField(max_length=256)
+    bio = models.TextField(max_length=1023, blank=True)
+    email=models.CharField(max_length=255, blank=True)
     channels = models.ManyToManyField(Channel_Room, related_name="user_channels", blank=True,)
     others = models.ManyToManyField(User, related_name='pvs', blank=True)
     others_rooms = models.ManyToManyField(PV_Room, related_name='pvrs', blank=True)

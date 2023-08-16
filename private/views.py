@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
-from .forms import Pv,Chan
+from .forms import Pv,Chan, EditUserProfile
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
+from django.shortcuts import render, get_object_or_404, redirect, HttpResponse, HttpResponseRedirect
 from .models import PV_Room, PV_Message, Slug, PV_Member, Channel_Room, Channel_Message
 from django.http import JsonResponse
 
@@ -187,3 +187,29 @@ def room(request, slug):
 
 def load(request, slug, img):
     return redirect("main_page")
+
+@login_required
+def edit(request):
+    if request.method == "POST":
+        form = EditUserProfile(request.POST)
+        if form.is_valid():
+            display_name = form.cleaned_data.get('display_name')
+            email = form.cleaned_data.get('email')
+            bio = form.cleaned_data.get('bio')
+            if PV_Member.objects.filter(user=request.user).first():
+                PV_Member.objects.filter(user=request.user).delete()
+
+            info=PV_Member(user=request.user, display_name=display_name, bio=bio, email=email)
+            info.save()
+            return HttpResponseRedirect("/")
+        else:
+            return HttpResponseRedirect("/")
+    else:
+        u=PV_Member.objects.filter(user=request.user).first()
+        if PV_Member.objects.filter(user=request.user).exists():
+            u = PV_Member.objects.filter(user=request.user).first()
+            form = EditUserProfile(initial={'display_name':u.display_name,'bio':u.bio,'email':u.email})
+        else:
+            form = EditUserProfile()
+        use = PV_Member.objects.filter(user=request.user).first()
+        return render(request=request, template_name="edit/edit.html", context={"form":form, "use":use,})

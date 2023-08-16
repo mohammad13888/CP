@@ -10,10 +10,10 @@
   <title>Enter room</title>
 </div>
 <style>
-  * { 
+  * {
     font-family: Vazir;
   }
-  
+
 </style>
 
 
@@ -28,7 +28,7 @@
       <div class="flex flex-col h-full">
         <div class="gap-y-2 h-80 overflow-auto" id="chat-messages">
                 {% for m in messages %}
-                
+
 
                 {% if m.user.username == user %}
                 <div id="{{m.id}}" class="col-start-6 col-end-13 p-3 rounded-lg">
@@ -47,10 +47,10 @@
                       <button onclick="del('{{ m.id }}')" id="chat-message-delete" name="{{ m }}" style="color:red; font-family: Vazir">حذف</button> ,
                       <button onclick="edit('{{ m.id }}')"  id="chat-message-edit" name="{{ m }}" style="font-family: Vazir">ویرایش</button>
                       , <button onclick="copy('{{ m.content }}')"  id="chat-message-edit" name="{{ m }}" style="font-family: Vazir">کپی</button>
-              
+
                     </div>
                   </div>
-                  
+
                 </div>
 
                 {% else %}
@@ -139,7 +139,7 @@
                 </span>
               </button>
             </div>
-          
+
           </div>
           </form>
           <p id="selector"></p>
@@ -156,7 +156,7 @@
 
 <script>
     const roomName = JSON.parse(document.getElementById('json-roomname').textContent);
-    const userName = JSON.parse(document.getElementById('json-username').textContent); 
+    const userName = JSON.parse(document.getElementById('json-username').textContent);
     let stringWithoutSpaces1 = userName.replace(/ /g, "");
     const chatSocket = new WebSocket(
         'ws://'
@@ -196,7 +196,7 @@
         }
         else if(data.command == "file_message")
         {
-        
+
             if (stringWithoutSpaces==stringWithoutSpaces1) {
             document.querySelector('#chat-messages').innerHTML += (`
                   <div id="${data.iddd}" class="col-start-6 col-end-13 p-3 rounded-lg">
@@ -230,14 +230,14 @@
                       <div class="text-justify"><span id="@${data.iddd}">${data.message}</span></div>
                       <a href="/media/${data.file_name}" target="_blank">File</a><br>
 
-                   <button onclick="copy('${data.m_message}')"   name="{{ m }}">Copy</button></div></div></div>`);
+                   <button onclick="copy('${data.m_message}')"   name="{{ m }}">کپی</button></div></div></div>`);
          }
     }
         else if(data.command == "add")
         {
         if (data.message) {
-        
-            if (stringWithoutSpaces==stringWithoutSpaces1) {         
+
+            if (stringWithoutSpaces==stringWithoutSpaces1) {
                 document.querySelector('#chat-messages').innerHTML += (`
                   <div id="${data.iddd}" class="col-start-6 col-end-13 p-3 rounded-lg">
                   <div class="flex items-center justify-start flex-row-reverse">
@@ -251,9 +251,9 @@
                     >
                       <div style="direction: rtl" class="text-justify"><span id="@${data.iddd}">${data.message}</span></div>
                       <button onclick="del('${data.iddd}')" id="chat-message-delete" name="{{ m }}" style="color:red; font-family: Vazir">حذف</button> ,
-                      <button onclick="edit('${data.iddd}')"  id="chat-message-edit" name="{{ m }}" style="font-family: Vazir">ویریش</button>
+                      <button onclick="edit('${data.iddd}')"  id="chat-message-edit" name="{{ m }}" style="font-family: Vazir">ویرایش</button>
                       , <button onclick="copy('${data.m_message}') name="{{ m }}" style="font-family: Vazir">کپی</button></div></div></div>`)
-              
+
               }
         else{
             document.querySelector('#chat-messages').innerHTML += (`
@@ -273,7 +273,7 @@
                    <button onclick="copy('${data.m_message}')"   name="{{ m }}">Copy</button></div></div></div>`);
 
         }
-        
+
         }
 
         else {
@@ -302,7 +302,7 @@
             'message': message,
             'username': userName,
             'room': roomName,
-            
+
         }));
     }
 
@@ -312,9 +312,9 @@
     document.getElementById('selector').innerHTML='selected';
   }
 });
-    
-    
-    
+
+
+
     function copy(content) {
     var input = document.createElement('input');
     input.setAttribute('value', content);
@@ -338,9 +338,9 @@
         submit.name=message;
         document.querySelector('#chat-message-submit').onclick = chat_edit;
 
-    }    
+    }
     document.querySelector('#chat-message-submit').onclick = chat_send;
-    
+
 
     function chat_edit(e) {
         e.preventDefault()
@@ -363,7 +363,7 @@
             'id': submit.name,
             'room': roomName,
         }));
-            
+
     }
         messageInputDom.value = '';
 
