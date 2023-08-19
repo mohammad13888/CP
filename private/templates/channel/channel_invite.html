@@ -83,6 +83,11 @@
       </style>
   
   <div id="13" class="contain2er">   
+  <h1>{{ room }}</h1>
+  <br>
+  <br>
+  <h3>آیا می خواهید عضو این کانال شوید؟</h3>
+  <br>
   <form method="post"  id="invite-form" action="{% url 'channel_invite' sl %}">
       {% csrf_token %}
       <button id="invite-button" style="font-family: Vazir" class="submit" type="submit">عضویت</button>
