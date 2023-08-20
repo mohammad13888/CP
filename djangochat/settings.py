@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-!79n+mp+d)1-=z7w5ee9f5*74mhqbene^c*89j@(1gsot5&t@o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["0.0.0.0","127.0.0.1","192.168.1.101","192.168.1.100"]
+ALLOWED_HOSTS = ["0.0.0.0","127.0.0.1","192.168.1.101","192.168.1.100","utachat.ir"]
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/login/'

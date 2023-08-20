@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from .forms import Pv,Chan, EditUserProfile
+from .forms import Pv,Chan, EditUserProfile, Chan_Message
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect, HttpResponse, HttpResponseRedirect
 from .models import PV_Room, PV_Message, Slug, PV_Member, Channel_Room, Channel_Message
@@ -8,9 +8,20 @@ from django.http import JsonResponse
 
 @login_required
 def channel_room(request, slug):
-    room = Channel_Room.objects.get(slug=slug)
-    messages = Channel_Message.objects.filter(room=room)
-    return render(request, 'channel/channel_room.html', {'room': room, 'messages': messages})
+    if request.method == "POST":
+        form = Chan_Message(request.POST)
+        if form.is_valid():
+            title = form.cleaned_data.get('title')
+            content = form.cleaned_data.get('content')
+            info=PV_Member(user=request.user, room=Channel_Room.objects.get(admin=user)[0])
+            info.save()
+            return HttpResponseRedirect("/")
+        else:
+            return HttpResponseRedirect("/")
+    else:
+        room = Channel_Room.objects.get(slug=slug)
+        messages = Channel_Message.objects.filter(room=room)
+        return render(request, 'channel/channel_room.html', {'room': room, 'messages': messages})
 
 @login_required
 def channel_invite(request, slug):
